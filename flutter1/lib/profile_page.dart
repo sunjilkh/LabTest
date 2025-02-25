@@ -26,6 +26,11 @@ class ProfilePage extends StatelessWidget {
               "Email: sunzilkhandaker@gmail.com",
               style: TextStyle(fontSize: 18),
             ),
+            Text(
+              "Name: Monjurul Islam",
+              style: TextStyle(fontSize: 18),
+            ),
+            Text("Email: prottoy12@gmail.com"),
           ],
         ),
       ),
