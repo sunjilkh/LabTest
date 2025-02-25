@@ -35,7 +35,7 @@ class DonorListPage extends StatelessWidget {
   // Sample donor data
   final List<Map<String, String>> donors = [
     {"name": "Sunzil", "bloodType": "O+"},
-    {"name": "Prottoy", "bloodType": "A-"},
+    {"name": "Prottoy", "bloodType": "O+"},
     {"name": "Rony", "bloodType": "B+"},
     {"name": "Mehedi", "bloodType": "AB+"},
   ];
