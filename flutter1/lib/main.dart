@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'profile_page.dart';
+import 'donor.dart';
 
 void main() {
   runApp(BloodDonationApp());
@@ -124,7 +125,7 @@ class DonorListPage extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
       children: [
         ListTile(
-          title: Text("Name: AAI"),
+          title: Text("Name: SK"),
           subtitle: Text("Blood Type: O+"),
           trailing: ElevatedButton(
             child: Text("Details"),
@@ -138,26 +139,6 @@ class DonorListPage extends StatelessWidget {
         ),
         // Add more donors here
       ],
-    );
-  }
-}
-
-class DonorDetailsPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Details")),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Name: AAI", style: TextStyle(fontSize: 20)),
-            Text("Blood Type: O+", style: TextStyle(fontSize: 20)),
-            Text("Mobile: ---", style: TextStyle(fontSize: 20)),
-          ],
-        ),
-      ),
     );
   }
 }
