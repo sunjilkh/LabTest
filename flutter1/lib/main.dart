@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'profile_page.dart'; // Import the ProfilePage from another file
 
 void main() {
   runApp(BloodDonationApp());
@@ -24,8 +25,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
     HomePage(),
-    DonorListPage()
-  ]; // Removed ProfilePage
+    DonorListPage(),
+    ProfilePage()
+  ]; // Added ProfilePage
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.list), label: "Donor List"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
       ),
     );
@@ -85,6 +88,18 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context); // Close the drawer
               // Navigate to DonorListPage
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text('Profile'),
+            onTap: () {
+              Navigator.pop(context); // Close the drawer
+              // Navigate to ProfilePage
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => HomeScreen()),
