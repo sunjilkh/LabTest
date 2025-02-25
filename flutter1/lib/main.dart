@@ -23,20 +23,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
-  final List<Widget> _screens = [
-    HomePage(),
-    DonorListPage(),
-    ProfilePage()
-  ]; // Added ProfilePage
+  final List<Widget> _screens = [HomePage(), DonorListPage(), ProfilePage()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Blood Donation")), // Centered title
+        title: Center(child: Text("Blood Donation")),
       ),
       body: _screens[_currentIndex],
-      drawer: AppDrawer(), // Added App Drawer
+      drawer: AppDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -74,8 +70,7 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.home),
             title: Text('Home'),
             onTap: () {
-              Navigator.pop(context); // Close the drawer
-              // Navigate to HomePage
+              Navigator.pop(context);
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => HomeScreen()),
@@ -86,8 +81,7 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.list),
             title: Text('Donor List'),
             onTap: () {
-              Navigator.pop(context); // Close the drawer
-              // Navigate to DonorListPage
+              Navigator.pop(context);
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => HomeScreen()),
@@ -98,8 +92,7 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.person),
             title: Text('Profile'),
             onTap: () {
-              Navigator.pop(context); // Close the drawer
-              // Navigate to ProfilePage
+              Navigator.pop(context);
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => HomeScreen()),
