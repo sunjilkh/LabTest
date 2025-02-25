@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'profile_page.dart';
+import 'donor.dart';
 
 void main() {
   runApp(BloodDonationApp());
@@ -17,6 +18,10 @@ class BloodDonationApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatefulWidget {
+  final int selectedIndex; // Add selectedIndex parameter
+
+  HomeScreen({this.selectedIndex = 0}); // Default to 0 (Home)
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -24,6 +29,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
   final List<Widget> _screens = [HomePage(), DonorListPage(), ProfilePage()];
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex =
+        widget.selectedIndex; // Set initial index from the parameter
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,10 +82,11 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.home),
             title: Text('Home'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pop(context); // Close the drawer
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
+                MaterialPageRoute(
+                    builder: (context) => HomeScreen(selectedIndex: 0)),
               );
             },
           ),
@@ -81,10 +94,11 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.list),
             title: Text('Donor List'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pop(context); // Close the drawer
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
+                MaterialPageRoute(
+                    builder: (context) => HomeScreen(selectedIndex: 1)),
               );
             },
           ),
@@ -92,10 +106,11 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.person),
             title: Text('Profile'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pop(context); // Close the drawer
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
+                MaterialPageRoute(
+                    builder: (context) => HomeScreen(selectedIndex: 2)),
               );
             },
           ),
@@ -112,51 +127,6 @@ class HomePage extends StatelessWidget {
       child: Text(
         "Welcome to Blood Donation",
         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-}
-
-class DonorListPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.all(16.0),
-      children: [
-        ListTile(
-          title: Text("Name: AAI"),
-          subtitle: Text("Blood Type: O+"),
-          trailing: ElevatedButton(
-            child: Text("Details"),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => DonorDetailsPage()),
-              );
-            },
-          ),
-        ),
-        // Add more donors here
-      ],
-    );
-  }
-}
-
-class DonorDetailsPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Details")),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Name: AAI", style: TextStyle(fontSize: 20)),
-            Text("Blood Type: O+", style: TextStyle(fontSize: 20)),
-            Text("Mobile: ---", style: TextStyle(fontSize: 20)),
-          ],
-        ),
       ),
     );
   }
