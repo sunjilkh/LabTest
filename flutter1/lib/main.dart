@@ -24,7 +24,7 @@ class HomeAct extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          'uycfasidfgieuf',
+          'I am Sunzil',
           style: TextStyle(fontSize: 24),
         ),
       ),
