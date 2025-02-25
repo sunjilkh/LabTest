@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'profile_page.dart'; // Import the ProfilePage from another file
+import 'profile_page.dart';
 
 void main() {
   runApp(BloodDonationApp());
