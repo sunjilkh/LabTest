@@ -18,7 +18,16 @@ class MainApp extends StatelessWidget {
 class HomeAct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home Screen'),
+      ),
+      body: const Center(
+        child: Text(
+          'Hello, Flutter!',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+    );
   }
 }
