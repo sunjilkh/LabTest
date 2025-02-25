@@ -24,7 +24,7 @@ class HomeAct extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          'Hello, Flutter!',
+          'uycfasidfgieuf',
           style: TextStyle(fontSize: 24),
         ),
       ),
